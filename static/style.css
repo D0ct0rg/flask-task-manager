@@ -1,0 +1,91 @@
+body {
+    font-family: Ariel;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: darkblue;
+}
+
+.container {
+    width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 70%;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.add-button:hover {
+    background-color: darkblue;
+}
+
+.delete-button {
+    background-color: red;
+    transition: 0.2s;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+.complete-button {
+    background-color: green;
+    transition: 0.2s;
+}
+
+.complete-button:hover {
+    background-color: rgb(0, 73, 0);
+}
+
+.task {
+    background: #eeeeee;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filters {
+    margin: 15px 0;
+}
+
+.filters a {
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: #dddddd;
+    color: black;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: 0.2s;
+}
+
+.filters a:hover {
+    background-color: #cccccc;
+}

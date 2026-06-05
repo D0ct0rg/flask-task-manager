@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')  }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Flask Task Manager</h1>
+        <p>Total Tasks: {{ total_tasks }}</p>
+        <p>Completed Tasks: {{ completed_tasks }}</p>
+        <p>Incompleted Tasks: {{ incompleted_tasks }}</p>
+
+        <div class="filters">
+            <a href="/">All</a>
+            <a href="/?filter=completed">Completed</a>
+            <a href="/?filter=incomplete">Incomplete</a>
+        </div>
+
+        <form action="/add" method="POST">
+            <input type="text" name="task_name" placeholder="Enter a task">
+            <button class="add-button">Add Task</button>
+        </form>
+
+        {% for task in tasks %}
+
+        <div class="task">
+
+            <div class="task-content">
+
+                <p>
+                    {% if task[2] == 1 %}
+                    ✅
+                    {% else %}
+                    ❌
+                    {% endif %}
+
+                    {{ task[1] }}
+
+                </p>
+                <div class="task-buttons">
+                    <form action="/delete/{{ task[0] }}" method="POST">
+                        <button class="delete-button" type="submit">Delete</button>
+                    </form>
+
+                    {% if task[2] == 0 %}
+                    <form action="/complete/{{ task[0] }}" method="POST">
+                        <button class="complete-button" type='submit'>Complete</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>
