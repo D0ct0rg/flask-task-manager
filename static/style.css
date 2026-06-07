@@ -89,3 +89,20 @@ button:hover {
 .filters a:hover {
     background-color: #cccccc;
 }
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .task {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode h1 {
+    color: white;
+}
