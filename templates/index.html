@@ -47,6 +47,7 @@
 
                 </p>
                 <div class="task-buttons">
+                    <a href="/edit/{{ task[0] }}" class="edit-button">Edit</a>
                     <form action="/delete/{{ task[0] }}" method="POST">
                         <button class="delete-button" type="submit">Delete</button>
                     </form>
@@ -56,6 +57,7 @@
                         <button class="complete-button" type='submit'>Complete</button>
                     </form>
                     {% endif %}
+
                 </div>
             </div>
 

@@ -106,3 +106,16 @@ body.dark-mode .task {
 body.dark-mode h1 {
     color: white;
 }
+
+.edit-button {
+    text-decoration: none;
+    background-color: rgb(42, 130, 164);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.edit-button:hover {
+    background-color: rgb(26, 101, 158);
+}

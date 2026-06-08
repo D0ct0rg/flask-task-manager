@@ -117,9 +117,41 @@ def complete_task(task_id):
     return redirect('/')
 
 
-@app.route('/about')
-def about():
-    return 'This is the about page'
+@app.route('/edit/<int:task_id>')
+def edit_task(task_id):
+
+    connection = sqlite3.connect('tasks.db')
+    cursor = connection.cursor()
+
+    cursor.execute(
+        'SELECT * FROM tasks WHERE id = ?', (task_id,)
+    )
+
+    task = cursor.fetchone()
+
+    connection.close()
+
+    return render_template('edit.html', task=task)
+
+
+@app.route('/update/<int:task_id>', methods=['POST'])
+def update_task(task_id):
+    task_name = request.form['task_name']
+
+    if task_name.strip() != '':
+        connection = sqlite3.connect('tasks.db')
+        cursor = connection.cursor()
+
+        cursor.execute('''
+        UPDATE tasks
+        SET task_name = ?
+        WHERE id = ?
+        ''', (task_name, task_id))
+
+        connection.commit()
+        connection.close()
+
+    return redirect('/')
 
 
 setup_database()
