@@ -10,7 +10,8 @@ def setup_database():
     CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         task_name TEXT NOT NULL,
-        completed INTEGER NOT NULL
+        completed INTEGER NOT NULL,
+        due_date TEXT
     )
     ''')
 
@@ -66,15 +67,17 @@ def add_task():
 
     task_name = request.form['task_name']
 
+    due_date = request.form['due_date']
+
     if task_name.strip() != '':
 
         connection = sqlite3.connect('tasks.db')
         cursor = connection.cursor()
 
         cursor.execute('''
-        INSERT INTO tasks (task_name, completed)
-        VALUES (?, 0)
-        ''', (task_name,))
+        INSERT INTO tasks (task_name, completed, due_date)
+        VALUES (?, 0, ?)
+        ''', (task_name, due_date))
 
         connection.commit()
         connection.close()

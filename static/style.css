@@ -119,3 +119,13 @@ body.dark-mode h1 {
 .edit-button:hover {
     background-color: rgb(26, 101, 158);
 }
+
+.due-date {
+    font-size: 14px;
+    color: #7b7b7b;
+    margin: 5px 0;
+}
+
+.due-date .dark-mode {
+    color: #e6e6e6;
+}

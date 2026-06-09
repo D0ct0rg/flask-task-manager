@@ -27,6 +27,7 @@
 
         <form action="/add" method="POST">
             <input type="text" name="task_name" placeholder="Enter a task">
+            <input type="date" name="due_date">
             <button class="add-button">Add Task</button>
         </form>
 
@@ -44,7 +45,12 @@
                     {% endif %}
 
                     {{ task[1] }}
-
+                    
+                    {% if task[3] %}
+                        <p class="due-date">Due: {{ task[3] }}</p>
+                    {% else %}
+                        <p class="due-date">No due date</p>
+                    {% endif %}
                 </p>
                 <div class="task-buttons">
                     <a href="/edit/{{ task[0] }}" class="edit-button">Edit</a>
