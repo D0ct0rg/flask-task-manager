@@ -25,9 +25,14 @@
             <a href="/?filter=incomplete">Incomplete</a>
         </div>
 
-        <form action="/add" method="POST">
+        <form action="/add" method="POST" class="add-form" >
             <input type="text" name="task_name" placeholder="Enter a task">
             <input type="date" name="due_date">
+            <select name="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
             <button class="add-button">Add Task</button>
         </form>
 
@@ -36,22 +41,32 @@
         <div class="task">
 
             <div class="task-content">
+                <div class="task-info">
+                    <p>
+                        {% if task[2] == 1 %}
+                        ✅
+                        {% else %}
+                        ❌
+                        {% endif %}
 
-                <p>
-                    {% if task[2] == 1 %}
-                    ✅
-                    {% else %}
-                    ❌
-                    {% endif %}
+                        {{ task[1] }}
+                    </p>
 
-                    {{ task[1] }}
-                    
                     {% if task[3] %}
                         <p class="due-date">Due: {{ task[3] }}</p>
                     {% else %}
                         <p class="due-date">No due date</p>
                     {% endif %}
-                </p>
+
+                    {% if task[4] == 'High' %}
+                        <p>🔴 High Priority</p>
+                    {% elif task[4] == 'Medium' %}
+                        <p>🟡 Medium Priority</p>
+                    {% else %}
+                        <p>🟢 Low Priority</p>
+                    {% endif %}
+                </div>
+
                 <div class="task-buttons">
                     <a href="/edit/{{ task[0] }}" class="edit-button">Edit</a>
                     <form action="/delete/{{ task[0] }}" method="POST">
@@ -63,7 +78,6 @@
                         <button class="complete-button" type='submit'>Complete</button>
                     </form>
                     {% endif %}
-
                 </div>
             </div>
 

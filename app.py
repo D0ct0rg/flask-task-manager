@@ -11,7 +11,8 @@ def setup_database():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         task_name TEXT NOT NULL,
         completed INTEGER NOT NULL,
-        due_date TEXT
+        due_date TEXT,
+        priority TEXT
     )
     ''')
 
@@ -69,15 +70,17 @@ def add_task():
 
     due_date = request.form['due_date']
 
+    priority = request.form['priority']
+    
     if task_name.strip() != '':
 
         connection = sqlite3.connect('tasks.db')
         cursor = connection.cursor()
 
         cursor.execute('''
-        INSERT INTO tasks (task_name, completed, due_date)
-        VALUES (?, 0, ?)
-        ''', (task_name, due_date))
+        INSERT INTO tasks (task_name, completed, due_date, priority)
+        VALUES (?, 0, ?, ?)
+        ''', (task_name, due_date, priority))
 
         connection.commit()
         connection.close()

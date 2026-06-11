@@ -4,11 +4,11 @@ body {
 }
 
 h1 {
-    color: darkblue;
+    color: Darkblue;
 }
 
 .container {
-    width: 500px;
+    width: 550px;
     margin: auto;
     background: white;
     padding: 20px;
@@ -31,6 +31,10 @@ button {
 
 button:hover {
     opacity: 0.8;
+}
+
+.add-button {
+    white-space: nowrap;
 }
 
 .add-button:hover {
@@ -122,10 +126,31 @@ body.dark-mode h1 {
 
 .due-date {
     font-size: 14px;
-    color: #7b7b7b;
+    color: black;
     margin: 5px 0;
 }
 
-.due-date .dark-mode {
-    color: #e6e6e6;
+body.dark-mode .due-date {
+    color: white;
+}
+
+.add-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.add-form input, .add-form select {
+    padding: 10px;
+}
+
+.add-form input[type='text'] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
