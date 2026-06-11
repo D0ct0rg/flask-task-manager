@@ -5,11 +5,14 @@ A full-stack task manager web application built using Flask and SQLite.
 ## Features
 
 - Add tasks
+- Edit tasks
 - Delete tasks
 - Mark tasks complete
-- Filter tasks
-- Dynamic task statistics
-- Responsive UI styling
+- Filter tasks by status
+- Set due dates
+- Assign priority levels
+- Toggle dark mode
+- SQLite storage
 
 ## Technologies Used
 
